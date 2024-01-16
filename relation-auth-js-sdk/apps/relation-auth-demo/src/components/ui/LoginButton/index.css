@@ -1,0 +1,16 @@
+.login-btn {
+    display: inline-block;
+}
+
+.eth-address {
+    padding: 6px 16px;
+    color: #1976d2;
+    border: 1px solid #1976d2;
+    border-radius: 24px;
+
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+}

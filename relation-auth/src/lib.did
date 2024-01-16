@@ -1,0 +1,67 @@
+type Algorithm = variant {
+    secp256k1;
+    sr25519;
+    none;
+};
+
+type AuthReq = record {
+    pk : text;
+    algorithm : Algorithm;
+    message : text;
+    wallet_name : text;
+    decoded_signature : text;
+    chain_name : text;
+};
+
+type Result = variant {
+    Ok : text;
+    Err : text;
+};
+
+type PublicKey = blob;
+
+type SessionKey = PublicKey;
+
+// HTTP support
+type HeaderField = record {
+    text;
+    text;
+};
+
+type HttpRequest = record {
+    method : text;
+    url : text;
+    headers : vec HeaderField;
+    body : blob;
+};
+
+type HttpResponse = record {
+    status_code : nat16;
+    headers : vec HeaderField;
+    body : blob;
+    streaming_strategy : opt StreamingStrategy;
+    upgrade : bool;
+};
+
+type StreamingCallbackHttpResponse = record {
+    body : blob;
+    token : opt Token;
+};
+
+type Token = record {};
+
+type StreamingStrategy = variant {
+    Callback : record {
+        callback : func(Token) -> (StreamingCallbackHttpResponse) query;
+        token : Token;
+    };
+};
+
+service : {
+    __get_candid_interface_tmp_hack : () -> (text) query;
+    auth : (AuthReq) -> (Result) query;
+    cycles_balance : () -> (nat64) query;
+
+    http_request : (HttpRequest) -> (HttpResponse) query;
+    http_request_update : (HttpRequest) -> (HttpResponse);
+};

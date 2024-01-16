@@ -1,0 +1,25 @@
+.list-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 1rem;
+    display: flex;
+}
+
+.list-item:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.list-item .list-item-content {
+    margin: 4px 0;
+    text-transform: uppercase;
+    flex-grow: 1;
+}
+
+.list-item .list-item-actions {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 16px;
+}

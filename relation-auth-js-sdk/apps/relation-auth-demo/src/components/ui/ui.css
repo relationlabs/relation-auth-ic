@@ -1,0 +1,8 @@
+.following, .follow {
+    min-width: 490px;
+    
+}
+
+.following .list, .follow .list {
+    height: 600px;
+}

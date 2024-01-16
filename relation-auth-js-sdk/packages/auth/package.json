@@ -1,0 +1,65 @@
+{
+  "version": "1.0.7",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build && find dist/ -name \"*.map\" -type f -delete",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "publish": "npm publish"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint",
+      "pre-push": "npm run size"
+    }
+  },
+  "name": "@relationlabs/auth",
+  "author": "relationlabs",
+  "module": "dist/auth.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/auth.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/auth.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "husky": "^8.0.1",
+    "size-limit": "^7.0.8",
+    "tsconfig": "workspace:*",
+    "tsdx": "^0.14.1",
+    "typescript": "^4.6.4",
+    "tslib": "^2.6.0"
+  },
+  "dependencies": {
+    "@dfinity/agent": "0.10.1",
+    "@dfinity/auth-client": "^0.10.1",
+    "@dfinity/authentication": "^0.10.1",
+    "@dfinity/candid": "0.9.1",
+    "@dfinity/identity": "^0.10.1",
+    "@dfinity/principal": "0.10.1",
+    "@ethersproject/bytes": "^5.7.0",
+    "@ethersproject/signing-key": "^5.7.0",
+    "axios": "^0.27.2",
+    "ethers": "^5.6.7"
+  }
+}

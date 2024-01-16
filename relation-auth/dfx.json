@@ -1,0 +1,18 @@
+{
+  "canisters": {
+    "relation_auth": {
+      "type": "custom",
+      "candid": "src/lib.did",
+      "wasm": "target/wasm32-unknown-unknown/release/relation_auth-opt.wasm",
+      "build": "./build.sh"
+    }
+
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}

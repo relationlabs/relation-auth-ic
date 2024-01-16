@@ -1,0 +1,18 @@
+{
+  "name": "relation-js-sdk",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "eslint --fix --ext .ts,.tsx ."
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.9.7",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "prettier": "^2.5.1",
+    "turbo": "latest",
+    "@dfinity/agent": "0.10.1"
+  },
+  "packageManager": "pnpm@7.15.0"
+}
